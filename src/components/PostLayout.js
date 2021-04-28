@@ -9,7 +9,6 @@ const PostsLayout = ({ pageContext, data }) => {
 
   const components = {
     div: ({ children }) => <div>{children}</div>,
-    h1: ({ children }) => <h1 className="font-bold">{children}</h1>,
     h2: ({ children }) => <h2>{children}</h2>,
     p: ({ children }) => <p>{children}</p>,
     blockquote: ({ children }) => <quote>{children}</quote>,
