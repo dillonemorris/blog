@@ -13,7 +13,6 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: { tailwind: true },
     },
-    "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -22,13 +21,30 @@ module.exports = {
       },
     },
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
     // {
     //   resolve: "gatsby-plugin-manifest",
     //   options: {
     //     icon: "💙",
     //   },
     // },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => "https://www.dlln.io",
+        resolvePages: ({ allSitePage: { nodes } }) => {
+          return nodes.map((page) => ({ ...page }));
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
