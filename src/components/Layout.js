@@ -3,5 +3,5 @@ import "../styles/globals.css";
 import "../fonts/fonts.css";
 
 export const Layout = ({ children }) => {
-  return <div className="m-auto max-w-prose pt-20">{children}</div>;
+  return <div className="m-auto max-w-prose pt-20 px-4">{children}</div>;
 };

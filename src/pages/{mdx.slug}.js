@@ -12,23 +12,34 @@ export default function PostPage({ data }) {
 
   const components = {
     div: ({ children }) => <div>{children}</div>,
+    a: ({ children, href }) => {
+      console.log(children);
+      return (
+        <a
+          target="blank"
+          href={href}
+          className="text-blue-600 hover:underline font-bold"
+        >
+          {children}
+        </a>
+      );
+    },
     h2: ({ children }) => (
       <h2
         style={{ width: "fit-content" }}
-        className="font-bold text-gray-800 text-3xl mt-10 mb-6"
+        className="font-bold text-gray-800 text-3xl mt-10 mb-3"
       >
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="font-bold text-gray-800 text-xl mb-4 mt-8">{children}</h3>
+      <h3 className="font-bold text-gray-800 text-xl mb-1 mt-8">{children}</h3>
     ),
     p: ({ children }) => (
       <p className="mb-6 text-gray-900 font-body">{children}</p>
     ),
     blockquote: ({ children }) => <quote>{children}</quote>,
     pre: ({ children }) => <pre children={children} />,
-    a: ({ children, href }) => <Link to={href} children={children} />,
     ul: ({ children }) => <ul className="list-disc ml-4 mb-6">{children}</ul>,
   };
 
