@@ -1,5 +1,6 @@
 import { graphql, Link } from "gatsby";
 import * as React from "react";
+import { Calendar } from "../components/icons/Calendar";
 
 const IndexPage = ({ data }) => {
   return (
@@ -21,12 +22,14 @@ const IndexPage = ({ data }) => {
             >
               {frontmatter.icon}
             </span>
-
             <div className="flex flex-col pl-6">
-              <h1 className="text-xl text-gray-900 font-bold">
+              <h1 className="text-xl mb-1 text-gray-900 font-bold">
                 {frontmatter.title}
               </h1>
-              <p>{frontmatter.date}</p>
+              <div className="flex items-center">
+                <Calendar />
+                <p className="text-gray-500 ml-2 text-sm">{frontmatter.date}</p>
+              </div>
             </div>
           </Link>
         );
@@ -40,7 +43,6 @@ export const query = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         id
-        excerpt(pruneLength: 50)
         frontmatter {
           title
           date(formatString: "MMMM Do, YYYY")
