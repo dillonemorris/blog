@@ -2,11 +2,12 @@ import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
+import { Calendar } from "../components/icons/Calendar";
 
 export default function PostPage({ data }) {
   const {
     body,
-    frontmatter: { title, icon, date },
+    frontmatter: { title, icon, date, hero },
   } = data.mdx;
 
   const components = {
@@ -22,7 +23,9 @@ export default function PostPage({ data }) {
     h3: ({ children }) => (
       <h3 className="font-bold text-gray-800 text-xl mb-4 mt-8">{children}</h3>
     ),
-    p: ({ children }) => <p className="mb-6 text-gray-900">{children}</p>,
+    p: ({ children }) => (
+      <p className="mb-6 text-gray-900 font-body">{children}</p>
+    ),
     blockquote: ({ children }) => <quote>{children}</quote>,
     pre: ({ children }) => <pre children={children} />,
     a: ({ children, href }) => <Link to={href} children={children} />,
@@ -40,15 +43,16 @@ export default function PostPage({ data }) {
           dillon.
         </Link>
       </div>
-      <div>
-        <span className="text-7xl" role="img" aria-label="unique emoji icon">
-          {icon}
-        </span>
+      <img className="w-52" src={hero.publicURL} />
+      <div className="pb-24">
         <div className="mb-8">
-          <h1 className="text-gray-800 font-black text-5xl mt-12 mb-2">
+          <h1 className="text-gray-800 font-black text-5xl mt-8 mb-2 font-sans">
             {title}
           </h1>
-          <p>{date}</p>
+          <div className="flex items-center">
+            <Calendar />
+            <p className="text-gray-500 ml-2 text-base font-semibold">{date}</p>
+          </div>
         </div>
         <MDXRenderer>{body}</MDXRenderer>
       </div>
@@ -65,7 +69,9 @@ export const query = graphql`
       frontmatter {
         date(formatString: "MMMM Do, YYYY")
         title
-        icon
+        hero {
+          publicURL
+        }
       }
     }
   }
