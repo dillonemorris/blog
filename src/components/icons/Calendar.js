@@ -3,8 +3,8 @@ import React from "react";
 export const Calendar = () => {
   return (
     <svg
-      height="20"
-      width="20"
+      height="16"
+      width="16"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >

@@ -3,16 +3,7 @@ module.exports = {
     title: "Dillon's Blog",
   },
   plugins: [
-    {
-      resolve: "gatsby-plugin-postcss",
-      options: {
-        postCssPlugins: [require("tailwindcss")("./tailwind.config.js")],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: { tailwind: true },
-    },
+    "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",

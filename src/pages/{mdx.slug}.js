@@ -1,13 +1,24 @@
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { Calendar } from "../components/icons/Calendar";
+import { PublishedDate } from "../components/PublishedDate";
+import styled from "styled-components";
+import Spacer from "../components/Spacer";
+import { H2, P, H3, A } from "../components/Elements";
+
+const PostWrapper = styled.div`
+  padding-top: 40px;
+`;
+
+const Title = styled.h1`
+  font-size: 44px;
+`;
 
 export default function PostPage({ data }) {
   const {
     body,
-    frontmatter: { title, icon, date, hero },
+    frontmatter: { title, largeImage, date },
   } = data.mdx;
 
   const components = {
@@ -15,58 +26,30 @@ export default function PostPage({ data }) {
     a: ({ children, href }) => {
       console.log(children);
       return (
-        <a
-          target="blank"
-          href={href}
-          className="text-blue-600 hover:underline font-bold"
-        >
+        <A target="blank" href={href}>
           {children}
-        </a>
+        </A>
       );
     },
-    h2: ({ children }) => (
-      <h2
-        style={{ width: "fit-content" }}
-        className="font-bold text-gray-800 text-3xl mt-10 mb-3"
-      >
-        {children}
-      </h2>
-    ),
-    h3: ({ children }) => (
-      <h3 className="font-bold text-gray-800 text-xl mb-1 mt-8">{children}</h3>
-    ),
-    p: ({ children }) => (
-      <p className="mb-6 text-gray-900 font-body">{children}</p>
-    ),
+    h2: ({ children }) => <H2 style={{ width: "fit-content" }}>{children}</H2>,
+    h3: ({ children }) => <H3>{children}</H3>,
+    p: ({ children }) => <P>{children}</P>,
     blockquote: ({ children }) => <quote>{children}</quote>,
     pre: ({ children }) => <pre children={children} />,
-    ul: ({ children }) => <ul className="list-disc ml-4 mb-6">{children}</ul>,
+    ul: ({ children }) => <ul>{children}</ul>,
   };
 
   return (
     <MDXProvider components={components}>
-      <div className="pb-12 text-base font-semibold text-gray-900">
-        <Link to="/">
-          {" "}
-          <span role="img" aria-label="love">
-            💙
-          </span>{" "}
-          dillon.
-        </Link>
-      </div>
-      <img className="w-52" src={hero.publicURL} />
-      <div className="pb-24">
-        <div className="mb-8">
-          <h1 className="text-gray-800 font-black text-5xl mt-8 mb-2 font-sans">
-            {title}
-          </h1>
-          <div className="flex items-center">
-            <Calendar />
-            <p className="text-gray-500 ml-2 text-base font-semibold">{date}</p>
-          </div>
+      <PostWrapper>
+        <div>
+          <img style={{ width: 220 }} src={largeImage.publicURL} />
+          <Title>{title}</Title>
+          <PublishedDate date={date} />
         </div>
+        <Spacer size={20} />
         <MDXRenderer>{body}</MDXRenderer>
-      </div>
+      </PostWrapper>
     </MDXProvider>
   );
 }
@@ -80,7 +63,7 @@ export const query = graphql`
       frontmatter {
         date(formatString: "MMMM Do, YYYY")
         title
-        hero {
+        largeImage {
           publicURL
         }
       }

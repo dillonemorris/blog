@@ -38,6 +38,8 @@ template {
 }
 a {
   background-color: transparent;
+  text-decoration: none;
+  color: inherit;
   -webkit-text-decoration-skip: objects;
 }
 a:active,
@@ -256,6 +258,8 @@ h1 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 h2 {
   margin-left: 0;
@@ -270,6 +274,8 @@ h2 {
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
   line-height: 1.1;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 h3 {
   margin-left: 0;
@@ -284,6 +290,8 @@ h3 {
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
   line-height: 1.1;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 h4 {
   margin-left: 0;
@@ -386,6 +394,8 @@ p {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 figure {
   margin-left: 0;
