@@ -8,11 +8,12 @@ import Spacer from "../components/Spacer";
 import { H2, P, H3, A } from "../components/Elements";
 
 const PostWrapper = styled.div`
-  padding-top: 40px;
+  padding: 40px 0px;
 `;
 
 const Title = styled.h1`
   font-size: 44px;
+  color: #111827;
 `;
 
 export default function PostPage({ data }) {

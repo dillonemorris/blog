@@ -19,10 +19,11 @@ const StyledLink = styled(Link)`
 
 const Title = styled.h1`
   font-size: 26px;
+  color: #111827;
 `;
 
 const PostWrapper = styled.div`
-  padding: 80px 0px;
+  padding: 40px 0px;
 `;
 
 const Excerpt = styled.p`

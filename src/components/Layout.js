@@ -4,6 +4,7 @@ import "../fonts/fonts.css";
 import styled from "styled-components";
 import Spacer from "./Spacer";
 import { Link } from "gatsby";
+import { Footer } from "./Footer";
 
 const Background = styled.div`
   background-color: #fff;
@@ -14,7 +15,10 @@ const Wrapper = styled.div`
   max-width: 600px;
   width: 100%;
   margin: auto;
-  padding: 60px 8px;
+  padding: 40px 8px 0px 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Emoji = styled.span`
@@ -24,10 +28,15 @@ const Emoji = styled.span`
 const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
+  color: #111827;
 `;
 
 const Name = styled.h2`
   font-size: 24px;
+`;
+
+const Content = styled.div`
+  flex: 1 0 auto;
 `;
 
 export const Layout = ({ children }) => {
@@ -41,7 +50,8 @@ export const Layout = ({ children }) => {
           <Spacer size={6} />
           <Name>dillon.</Name>
         </LogoLink>
-        {children}
+        <Content>{children}</Content>
+        <Footer />
       </Wrapper>
     </Background>
   );
