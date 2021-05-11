@@ -2,10 +2,10 @@ import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { PublishedDate } from "../components/PublishedDate";
 import styled from "styled-components";
 import Spacer from "../components/Spacer";
 import { H2, P, H3, A } from "../components/Elements";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const PostWrapper = styled.div`
   padding: 40px 0px;
@@ -44,9 +44,8 @@ export default function PostPage({ data }) {
     <MDXProvider components={components}>
       <PostWrapper>
         <div>
-          <img style={{ width: 220 }} src={largeImage.publicURL} />
+          <GatsbyImage image={getImage(largeImage)} />
           <Title>{title}</Title>
-          <PublishedDate date={date} />
         </div>
         <Spacer size={20} />
         <MDXRenderer>{body}</MDXRenderer>
@@ -65,7 +64,13 @@ export const query = graphql`
         date(formatString: "MMMM Do, YYYY")
         title
         largeImage {
-          publicURL
+          childImageSharp {
+            gatsbyImageData(
+              width: 220
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
         }
       }
     }

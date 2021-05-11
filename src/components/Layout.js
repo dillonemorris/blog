@@ -1,13 +1,14 @@
 import React from "react";
 import "../styles/globals.css";
 import "../fonts/fonts.css";
-import styled from "styled-components";
-import Spacer from "./Spacer";
-import { Link } from "gatsby";
+import styled, { ThemeProvider } from "styled-components";
+import { ColorModeContainer } from "../components/ColorModeContainer";
 import { Footer } from "./Footer";
+import { Header } from "./Header";
+import { THEME_COLORS } from "../styles/theme";
 
 const Background = styled.div`
-  background-color: #fff;
+  background-color: var(--color-background);
   height: 100vh;
 `;
 
@@ -21,38 +22,22 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const Emoji = styled.span`
-  font-size: 18px;
-`;
-
-const LogoLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  color: #111827;
-`;
-
-const Name = styled.h2`
-  font-size: 24px;
-`;
-
 const Content = styled.div`
   flex: 1 0 auto;
 `;
 
 export const Layout = ({ children }) => {
   return (
-    <Background>
-      <Wrapper>
-        <LogoLink to="/">
-          <Emoji role="img" aria-label="love">
-            💙
-          </Emoji>{" "}
-          <Spacer size={6} />
-          <Name>dillon.</Name>
-        </LogoLink>
-        <Content>{children}</Content>
-        <Footer />
-      </Wrapper>
-    </Background>
+    <ThemeProvider theme={{ colors: THEME_COLORS }}>
+      <ColorModeContainer>
+        <Background>
+          <Wrapper>
+            <Header />
+            <Content>{children}</Content>
+            <Footer />
+          </Wrapper>
+        </Background>
+      </ColorModeContainer>
+    </ThemeProvider>
   );
 };

@@ -29,6 +29,10 @@ audio:not([controls]) {
   display: none;
   height: 0;
 }
+button {
+  background: none;
+  border: none;
+}
 progress {
   vertical-align: baseline;
 }
