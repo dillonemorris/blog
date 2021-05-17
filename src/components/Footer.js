@@ -7,7 +7,6 @@ import { useThemeColor } from "../hooks/useThemeColors";
 const Wrapper = styled.footer`
   flex-shrink: 0;
   padding: 30px 0px 40px;
-  border-top: 1px solid #f3f4f6;
 `;
 
 const Inner = styled.div`
@@ -20,7 +19,7 @@ const Icons = styled.div`
 `;
 
 const Tagline = styled.p`
-  font-size: 16px;
+  font-size: 18px;
   color: var(--color-text);
 `;
 
@@ -31,14 +30,13 @@ const Avatar = styled.img`
 
 export const Footer = () => {
   const fill = useThemeColor("primary");
-  console.log(fill);
   return (
     <Wrapper>
       <Inner>
         <Avatar src={avatar} />
         <Spacer size={8} />
         <div>
-          <Tagline>Words written by Dillon Morris.</Tagline>
+          <Tagline>Words by dillon.</Tagline>
           <Spacer size={4} />
           <Icons>
             <a target="blank" href="https://github.com/dilmodev">

@@ -2,7 +2,12 @@ import React from "react";
 
 export const Moon = () => {
   return (
-    <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      height="24"
+      width="24"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <g
         fill="none"
         stroke="#000"

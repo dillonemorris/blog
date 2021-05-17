@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import Spacer from "../components/Spacer";
+import Spacer from "./Spacer";
+import { P } from "./Elements";
+import { useIsDarkModeEnabled } from "../hooks/useIsDarkModeEnabled";
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -13,17 +15,21 @@ const StyledLink = styled(Link)`
 `;
 
 const Title = styled.h1`
-  font-size: 26px;
+  font-size: 34px;
   color: var(--color-text);
 `;
 
-const Excerpt = styled.p`
-  font-size: 16px;
+const Excerpt = styled(P)`
   color: var(--color-secondary-text);
 `;
 
-export const PostCard = ({ post }) => {
+export const Post = ({ post }) => {
   const { frontmatter, slug } = post;
+  const imageLightMode = getImage(frontmatter.image);
+  const imageDarkMode = getImage(frontmatter.imageDarkMode);
+  const isDarkModeEnabled = useIsDarkModeEnabled();
+  const image = isDarkModeEnabled ? imageDarkMode : imageLightMode;
+
   return (
     <StyledLink to={slug}>
       <div>
@@ -31,12 +37,11 @@ export const PostCard = ({ post }) => {
         <Title>{frontmatter.title}</Title>
         <Spacer size={4} />
         <Excerpt>{frontmatter.excerpt}</Excerpt>
-        <Spacer size={12} />
       </div>
-      <Spacer size={16} />
+      <Spacer size={24} />
       <GatsbyImage
         alt={`Illustration for ${frontmatter.title}`}
-        image={getImage(frontmatter.image)}
+        image={image}
       />
     </StyledLink>
   );

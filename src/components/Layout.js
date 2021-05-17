@@ -9,14 +9,14 @@ import { THEME_COLORS } from "../styles/theme";
 
 const Background = styled.div`
   background-color: var(--color-background);
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const Wrapper = styled.div`
-  max-width: 600px;
+  max-width: 720px;
   width: 100%;
   margin: auto;
-  padding: 40px 8px 0px 8px;
+  padding: 40px 16px 0px 16px;
   height: 100%;
   display: flex;
   flex-direction: column;

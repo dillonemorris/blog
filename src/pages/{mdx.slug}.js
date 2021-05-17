@@ -6,32 +6,37 @@ import styled from "styled-components";
 import Spacer from "../components/Spacer";
 import { H2, P, H3, A } from "../components/Elements";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { useIsDarkModeEnabled } from "../hooks/useIsDarkModeEnabled";
 
 const PostWrapper = styled.div`
   padding: 40px 0px;
 `;
 
 const Title = styled.h1`
-  font-size: 44px;
-  color: #111827;
+  font-size: 48px;
+  color: var(--color-text);
 `;
 
 export default function PostPage({ data }) {
   const {
     body,
-    frontmatter: { title, largeImage, date },
+    frontmatter: { title, largeImage, largeImageDarkMode },
   } = data.mdx;
+
+  const imageLightMode = getImage(largeImage);
+  const imageDarkMode = getImage(largeImageDarkMode);
+  const isDarkModeEnabled = useIsDarkModeEnabled();
+  const image = isDarkModeEnabled ? imageDarkMode : imageLightMode;
+
+  console.log({ isDarkModeEnabled });
 
   const components = {
     div: ({ children }) => <div>{children}</div>,
-    a: ({ children, href }) => {
-      console.log(children);
-      return (
-        <A target="blank" href={href}>
-          {children}
-        </A>
-      );
-    },
+    a: ({ children, href }) => (
+      <A target="blank" href={href}>
+        {children}
+      </A>
+    ),
     h2: ({ children }) => <H2 style={{ width: "fit-content" }}>{children}</H2>,
     h3: ({ children }) => <H3>{children}</H3>,
     p: ({ children }) => <P>{children}</P>,
@@ -44,7 +49,7 @@ export default function PostPage({ data }) {
     <MDXProvider components={components}>
       <PostWrapper>
         <div>
-          <GatsbyImage image={getImage(largeImage)} />
+          <GatsbyImage image={image} />
           <Title>{title}</Title>
         </div>
         <Spacer size={20} />
@@ -66,7 +71,16 @@ export const query = graphql`
         largeImage {
           childImageSharp {
             gatsbyImageData(
-              width: 220
+              width: 300
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        largeImageDarkMode {
+          childImageSharp {
+            gatsbyImageData(
+              width: 300
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )

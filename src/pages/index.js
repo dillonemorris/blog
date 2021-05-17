@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import * as React from "react";
 import styled from "styled-components";
-import { PostCard } from "../components/PostCard";
+import { Post } from "../components/Post";
 
 const PostWrapper = styled.div`
   padding: 40px 0px;
@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
       <title>dillon.</title>
       <PostWrapper>
         {posts.map((post) => {
-          return <PostCard post={post} />;
+          return <Post post={post} />;
         })}
       </PostWrapper>
     </main>
@@ -32,7 +32,16 @@ export const query = graphql`
           image {
             childImageSharp {
               gatsbyImageData(
-                width: 140
+                width: 180
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+          imageDarkMode {
+            childImageSharp {
+              gatsbyImageData(
+                width: 180
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
               )
