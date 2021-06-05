@@ -6,13 +6,14 @@ const BASE_COLORS = {
   BLUE_600: "#2563EB",
   BLUE_400: "#60A5FA",
   BLUE_200: "#BFDBFE",
+  BLUE_100: "#DBEAFE",
 };
 
 export const THEME_COLORS = {
   light: {
     text: BASE_COLORS.GRAY_900,
     background: "#fff",
-    secondaryBackground: "#fff",
+    secondaryBackground: BASE_COLORS.BLUE_100,
     secondaryText: BASE_COLORS.GRAY_500,
     primary: BASE_COLORS.BLUE_600,
   },

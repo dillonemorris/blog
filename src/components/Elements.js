@@ -1,8 +1,11 @@
+import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { SpeechBubble } from "./icons/SpeechBubble";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export const P = styled.p`
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   font-size: 20px;
   color: var(--color-text);
   line-height: 1.6;
@@ -33,3 +36,38 @@ export const A = styled(Link)`
     box-shadow: 0px 2px 0px var(--color-primary);
   }
 `;
+
+const BlockQuote = styled.blockquote`
+  background-color: var(--color-secondary-background);
+  color: #fff;
+  border-radius: 6px;
+  padding: 36px;
+  display: flex;
+
+  p {
+    padding: ${({ isMobile }) => (isMobile ? "8px" : "16px 32px")};
+    font-size: ${({ isMobile }) => (isMobile ? "16px" : "inherit")};
+  }
+`;
+
+const QuoteIcon = styled.div`
+  margin-left: -56px;
+  margin-top: -12px;
+  background-color: var(--color-primary);
+  display: flex;
+  height: fit-content;
+  padding: 12px;
+  border-radius: 50%;
+`;
+
+export const Quote = ({ children }) => {
+  const isMobile = useIsMobile();
+  return (
+    <BlockQuote isMobile={isMobile}>
+      <QuoteIcon>
+        <SpeechBubble />
+      </QuoteIcon>
+      {children}
+    </BlockQuote>
+  );
+};

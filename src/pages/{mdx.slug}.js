@@ -4,7 +4,7 @@ import React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import styled from "styled-components";
 import Spacer from "../components/Spacer";
-import { H2, P, H3, A } from "../components/Elements";
+import { H2, P, H3, A, Quote } from "../components/Elements";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useIsDarkModeEnabled } from "../hooks/useIsDarkModeEnabled";
 
@@ -28,8 +28,6 @@ export default function PostPage({ data }) {
   const isDarkModeEnabled = useIsDarkModeEnabled();
   const image = isDarkModeEnabled ? imageDarkMode : imageLightMode;
 
-  console.log({ isDarkModeEnabled });
-
   const components = {
     div: ({ children }) => <div>{children}</div>,
     a: ({ children, href }) => (
@@ -43,6 +41,7 @@ export default function PostPage({ data }) {
     blockquote: ({ children }) => <quote>{children}</quote>,
     pre: ({ children }) => <pre children={children} />,
     ul: ({ children }) => <ul>{children}</ul>,
+    blockquote: ({ children }) => <Quote>{children}</Quote>,
   };
 
   return (
