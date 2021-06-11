@@ -7,6 +7,7 @@ import Spacer from "../components/Spacer";
 import { H2, P, H3, A, Quote } from "../components/Elements";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useIsDarkModeEnabled } from "../hooks/useIsDarkModeEnabled";
+import { ButtonContrastExample } from "../components/ButtonContrastExample";
 
 const PostWrapper = styled.div`
   padding: 40px 0px;
@@ -42,6 +43,7 @@ export default function PostPage({ data }) {
     pre: ({ children }) => <pre children={children} />,
     ul: ({ children }) => <ul>{children}</ul>,
     blockquote: ({ children }) => <Quote>{children}</Quote>,
+    ButtonContrastExample,
   };
 
   return (

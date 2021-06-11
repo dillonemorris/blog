@@ -57,3 +57,26 @@ The idea behind accessibility is this:
 <br />
 
 No one reading this would argue with the sentiment above yet if we don’t take care and do the following things, we’re not adhering to this message. So without further ado, allow me to give you some tips for making your website of app accessible.
+
+## Color contrast on text content
+
+This is probably the lowest hanging fruit in terms of making your site more accessible. Caring about color contrast is to be mindful of those who have trouble or the complete inability to distinguish colors. Also, this one kind of applies to everyone. Let's take a look at a common example, buttons:
+
+<ButtonContrastExample disableDescription />
+
+<br />
+
+Looking at these two buttons side-by-side, it's obvious which one you should go with if you are keeping accessiblity in mind. However, just using your eye isn't good enough because it doesn't take into account others who see the world differently than you. That's where web standards come in. The web standard for color contrast is in the [Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/). These are a series of standards set with the intention of making the web more accessible to everyone. The standard defines two levels of contrast ratio for colors: AA (minimum contrast) and AAA (enhanced contrast). The level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (at least 18pt) or bold text. The level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text or bold text.
+
+<ButtonContrastExample />
+
+Luckily you don't have to memorize these rules and in practice you probably won't
+even reference the numbers themselves. There are numerous contrast checkers like
+[this one](https://coolors.co/contrast-checker/0a1b2e-aec9e5) where you can simply
+input the hex codes for the colors you want to check and instantly know if they meet
+the guidelines or not, use these anytime you want assurance that your color combinations
+are accessible. This is something that should be done up front when choosing the
+color palette of your project but it's something that's easy to keep in the back
+of your head and it's also something that is easy to change. Basically, if some text
+is even slightly hard for you to read against the background, it's likely that the
+colors do not meet these guidelines and need to be updated.
