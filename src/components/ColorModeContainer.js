@@ -55,6 +55,13 @@ export const ColorModeContainer = ({ children }) => {
     );
 
     root.style.setProperty(
+      "--color-dark-background",
+      colorMode === "light"
+        ? THEME_COLORS.light.darkBackground
+        : THEME_COLORS.dark.darkBackground
+    );
+
+    root.style.setProperty(
       "--color-secondary-text",
       newValue === "light"
         ? THEME_COLORS.light.secondaryText

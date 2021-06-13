@@ -8,6 +8,7 @@ import { H2, P, H3, A, Quote } from "../components/Elements";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useIsDarkModeEnabled } from "../hooks/useIsDarkModeEnabled";
 import { ButtonContrastExample } from "../components/ButtonContrastExample";
+import CodeSnippet from "../components/CodeSnippet";
 
 const PostWrapper = styled.div`
   padding: 40px 0px;
@@ -39,10 +40,10 @@ export default function PostPage({ data }) {
     h2: ({ children }) => <H2 style={{ width: "fit-content" }}>{children}</H2>,
     h3: ({ children }) => <H3>{children}</H3>,
     p: ({ children }) => <P>{children}</P>,
-    blockquote: ({ children }) => <quote>{children}</quote>,
-    pre: ({ children }) => <pre children={children} />,
     ul: ({ children }) => <ul>{children}</ul>,
     blockquote: ({ children }) => <Quote>{children}</Quote>,
+    pre: (props) => <pre {...props} />,
+    code: CodeSnippet,
     ButtonContrastExample,
   };
 

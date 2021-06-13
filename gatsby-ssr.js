@@ -68,6 +68,13 @@ const MagicScriptTag = () => {
     );
 
     root.style.setProperty(
+      '--color-dark-background',
+      colorMode === 'light'
+        ? '${THEME_COLORS.light.darkBackground}'
+        : '${THEME_COLORS.dark.darkBackground}'
+    );
+
+    root.style.setProperty(
       '--color-success',
       colorMode === 'light'
         ? '${THEME_COLORS.light.success}'
