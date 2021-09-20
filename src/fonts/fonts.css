@@ -5,6 +5,7 @@
   src: url("./Proxima-Nova-Bold.woff2") format("woff2"),
     url("./Proxima-Nova-Bold.woff") format("woff");
 }
+
 @font-face {
   font-family: "Proxima Nova";
   font-weight: 500;

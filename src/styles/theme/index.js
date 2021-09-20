@@ -1,4 +1,4 @@
-const BASE_COLORS = {
+export const COLORS = {
   GRAY_900: "#111827",
   GRAY_800: "#1F2937",
   GRAY_500: "#6B7280",
@@ -18,25 +18,25 @@ const BASE_COLORS = {
 
 export const THEME_COLORS = {
   light: {
-    text: BASE_COLORS.GRAY_900,
+    text: COLORS.GRAY_900,
     background: "#fff",
-    secondaryBackground: BASE_COLORS.BLUE_100,
-    tertiaryBackground: BASE_COLORS.GRAY_100,
-    darkBackground: BASE_COLORS.GRAY_900,
-    secondaryText: BASE_COLORS.GRAY_500,
-    primary: BASE_COLORS.BLUE_600,
-    success: BASE_COLORS.GREEN_700,
-    danger: BASE_COLORS.RED_700,
+    secondaryBackground: COLORS.BLUE_100,
+    tertiaryBackground: COLORS.GRAY_100,
+    darkBackground: COLORS.GRAY_900,
+    secondaryText: COLORS.GRAY_500,
+    primary: COLORS.BLUE_600,
+    success: COLORS.GREEN_700,
+    danger: COLORS.RED_700,
   },
   dark: {
     text: "#fff",
-    background: BASE_COLORS.GRAY_900,
-    secondaryBackground: BASE_COLORS.GRAY_800,
-    tertiaryBackground: BASE_COLORS.GRAY_800,
-    darkBackground: BASE_COLORS.GRAY_800,
-    secondaryText: BASE_COLORS.BLUE_200,
-    primary: BASE_COLORS.BLUE_400,
-    success: BASE_COLORS.GREEN_300,
-    danger: BASE_COLORS.RED_300,
+    background: COLORS.GRAY_900,
+    secondaryBackground: COLORS.GRAY_800,
+    tertiaryBackground: COLORS.GRAY_800,
+    darkBackground: COLORS.GRAY_800,
+    secondaryText: COLORS.BLUE_200,
+    primary: COLORS.BLUE_400,
+    success: COLORS.GREEN_300,
+    danger: COLORS.RED_300,
   },
 };

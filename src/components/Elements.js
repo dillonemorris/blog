@@ -5,7 +5,7 @@ import { SpeechBubble } from "./icons/SpeechBubble";
 import { useIsMobile } from "../hooks/useIsMobile";
 
 export const P = styled.p`
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   font-size: 20px;
   color: var(--color-text);
   line-height: 1.6;

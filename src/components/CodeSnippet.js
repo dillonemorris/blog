@@ -1,10 +1,11 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
+import { COLORS } from "../styles/theme";
 
 const theme = {
   plain: {
     color: "#d6deeb",
-    backgroundColor: "var(--color-dark-background)",
+    backgroundColor: COLORS.GRAY_800,
   },
   styles: [
     {
