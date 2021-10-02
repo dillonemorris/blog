@@ -26,21 +26,20 @@ The authors warn that this same degradation can happen to codebases if we're not
 
 <br />
 
-Some companies, like Google, have entire teams dedicated to accessibility. Most of us making software however, are not Google. We're small teams of 3-4 or indie hackers that are trying to scrape together a solution efficiently for our clients. Though that does not justify completely ignoring accessibility, it is understandable that it gets slid under the rug as something we'll address "when we have time." The trouble is, we rarely have extra time. So there's this conundrum. We know the importance of accessibility but we have other priorities we feel are more valuable.
+Some companies, like Google, have entire teams dedicated to accessibility. Most of us making software however, are not Google. We're small teams of 3-4 or indie hackers that are trying to scrape together a solution efficiently for our clients. Though that does not justify completely ignoring accessibility, it is understandable that it gets slid under the rug as something we'll address "when we have extra time." The trouble is, we rarely have extra time. So there's this conundrum. We know the importance of accessibility but we have other priorities we feel are more valuable.
 
 <br />
 
 The idea here is to present you with some "quick wins" for making your product's experience more accessible to everyone. These are things you can do "as you go."
-
-<br />
-
 This is not meant to diminish the importance of having full compliance with accessibility guidelines. Ultimately, that is the goal, that's what we should always be aiming for, full compliance. Anything short of that and you are inevitably guarding your site from being used by someone. However, I've been on enough projects to know that even being mindful of accessibility is a rarity. More often than not, it's completely ignored.
 
 <br />
 
-We shouldn't take this all or nothing approach. We can't think "accessibility? Oh yeah, we can't afford to have that as a concern of ours." The reality is, it is a concern when someone navigates to your site or app, struggles to use it, and then leaves and never returns. At that point it is your concern and affects the business' bottom line.
+We shouldn't take this all or nothing approach. We can't think "Accessibility? Oh yeah, we can't afford to have that as a concern of ours." The reality is, it is a concern when someone navigates to your site or app, struggles to use it, and then leaves and never returns. At that point it is your concern and affects the business' bottom line.
 
 <br />{" "}
+
+### Not a "nice-to-have"
 
 Like writing documentation or tests, accessibility is often seen as one of those "nice-to-haves" that you'll get around to someday. Let's face it, as developers, we're lazy. We don't want to have to do any extra work. If our project managers are not requesting something be done, we're probably not going to do it. However, this is not a sustainable approach. As makers of the product, the onus is upon us to make experiences that everyone can participate in, or at least not willfully ignore those that experience the product in a more limited way than us. We need to take full ownership of the product.
 
@@ -60,30 +59,38 @@ This is probably the lowest hanging fruit in terms of making your site more acce
 
 <ButtonContrastExample disableDescription />
 
-<br />
-
 Looking at these two buttons side-by-side, it's obvious which one you should go with if you are keeping accessiblity in mind. However, just using your eye isn't good enough because it doesn't take into account others who see the world differently than you. That's where web standards come in. The web standard for color contrast is in the [Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/). These are a series of standards set with the intention of making the web more accessible to everyone. The standard defines two levels of contrast ratio for colors: AA (minimum contrast) and AAA (enhanced contrast). The level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (at least 18pt) or bold text. The level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text or bold text.
-
-<ButtonContrastExample />
-
 Luckily you don't have to memorize these rules and in practice you probably won't
 even reference the numbers themselves. There are numerous contrast checkers like
 [this one](https://coolors.co/contrast-checker/0a1b2e-aec9e5) where you can simply
 input the hex codes for the colors you want to check and instantly know if they meet
 the guidelines or not, use these anytime you want assurance that your color combinations
-are accessible. This is something that should be done up front when choosing the
-color palette of your project but it's something that's easy to keep in the back
-of your head and it's also something that is easy to change. Basically, if some text
+are accessible.
+
+<ButtonContrastExample />
+
+Checking color contrast is something that should be done up front when choosing the
+color palette for your project. It's also something that's easy to keep in the back
+of your head and straightforward to correct. Basically, if some text
 is even slightly hard for you to read against the background, it's likely that the
 colors do not meet these guidelines and need to be updated.
 
 <br />
 
-Another easy way to check contrast is to inspect the element in question in Chrome, Edge or Firefox DevTools:
+### Element inspector 🕵🏻‍♂️
 
-![Google chrom dev tools](./a11y-dev-tools.png)
+Another easy way to check contrast is to inspect the element in question in Chrome, Edge or Firefox DevTools.
+In Chrome for example, when you open the developer tools (Cmd + Option + i) you'll just want to make sure you have the element inspector selected:
 
-This is what you see when you use the element inspector and hover over an element in Chrome. In the bottom half of this popover you get a nice Accessibility indicator. As you can see, the headline I'm hovering over meets the WCAG standard with a contrast ratio of 13.5.
+![Google chrome dev tools element inspector](./inspect-a11y.png)
+
+Now, any element you hover over will have a corresponding tooltip giving you styling information and an accessibility indicator.
+This is what you see when you use the element inspector and hover over an element in Chrome:
+
+![Google chrome dev tools](./a11y-dev-tools.png)
+
+Notice that in the bottom half of the tooltip you get a nice Accessibility indicator.
+As you can see, the headline I'm hovering over meets the WCAG standard with a contrast ratio of 13.5.
 
 ## The Accessibility Tree
 
@@ -91,9 +98,9 @@ You've probably heard of the DOM tree, right?
 
 > When a web browser parses an HTML document, it builds a DOM tree and then uses it to display the document. <br /><br /> [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 
-It is an API we can use as developers to manipulate the visual representation of those elements that the user interacts with. The word visual here is crucial because the DOM tree is really only useful to sighted users, at least directly. The browser takes this DOM tree and creates an accessibility tree based off of it. In turn, assistive technologies can use this accessibility tree to form a representation of the UI that visually impaired users can understand.
+The DOM is an API we can use as developers to manipulate the visual representation of those elements that the user interacts with. The word visual here is crucial because the DOM tree is really only useful to sighted users, at least directly. The browser takes this DOM tree and creates an accessibility tree based off of it. In turn, assistive technologies can use this accessibility tree to form a representation of the UI that visually impaired users can understand.
 
-Here is an example of a DOM tree for a website:
+Let's say you write some HTML that looks like this:
 
 ```html
 <html>
@@ -106,3 +113,159 @@ Here is an example of a DOM tree for a website:
   </body>
 </html>
 ```
+
+<br />
+
+The web browser will first take this structure and create a DOM tree that looks like this:
+
+<br />
+
+![Drawing of the DOM tree](./dom-tree.png)
+
+<br />
+
+Now, a lot of the information in a DOM tree is not useful to visually impaired users. So what the browser does from here is create an accessibility tree based off of this tree keeping only the parts that are useful for assistive technologies. That tree might look something like this:
+
+<br />
+
+![Drawing of the A11y DOM tree](./a11y-tree.png)
+
+<br />
+
+As you can see, some of the information and nesting that the DOM needs is not present in this more condensed tree known as the accessibility tree. The topmost block here represents the title of the page, provided in the head tag in our code snippet above:
+
+```html
+<head>
+  <title>Accessibility quick wins</title>
+</head>
+```
+
+This is important information for visually impaired users, it lets them know what the overall message of the content is, like the title of a chapter in a book.
+So a good rule of thumb is to make sure each page on your website or app has a single title element with text briefly describing the content of the page. This puts us on the path towards writing "semantic HTML".
+
+We'll look more into what semantic HTML is and why it's important in the next section. For now, just understand this flow I've outlined in the 3 screenshots above. It starts with the DOM structure you write, to the DOM tree the browser creates, to the accessibility tree generated from it.
+Understanding this flow, you can write HTML that's easily and correctly interpreted by the browser so it can form an accurate representation of your website for all users.
+
+As HTML/CSS developers, we are expected to have a solid understanding of the DOM tree and markup. This is our bread and butter, especially if you are primarily a frontend developer like myself. We need to know the different elements and how to manipulate them in order to affect the visual representation that the user interacts with. Yet, the same expectation does not expand to include the accessibility tree, and it should. After all, the only way screen readers can interact with our applications is through the accessibility tree. This is why proper semantic HTML in the DOM is so important. The more rich and meaningful the HTML is, the more rich and meaningful the accessibility tree will be in turn.
+
+## Rich, semantic, content
+
+Organizing content in a way that is scannable for both humans and screen readers is another quick win. This really all comes down to semantics in your HTML.
+For example, we have heading tags in HTML which denote the level of importance that element has on the page.
+The most common are going to be `h1`, `h2` and `h3`. Each page of content should have a single `h1`. That should be the most important heading on the page.
+For headings that are important but less so than the `h1` you would logically use the `h2` tag.
+This may seem obvious, but there are many ways you could create a top-level heading without using an `h1` tag.
+For example, you could wrap the element in a `span` and style it to look exactly like an `h1`:
+
+```html
+<span style="font-size: 40px; font-weight: bold;">
+  <p>Heading</p>
+</span>
+```
+
+However, this is bad practice and goes against what HTML is intended for:
+
+> HTML should be coded to represent the data that will be populated and not based on its default presentation styling.
+> Presentation (how it should look), is the sole responsibility of CSS. <br /><br />[MDN](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html)
+
+We want to use HTML as it's intended. If we don't do so we lose out on the accessibility benefits associated with doing it the correct way.
+This is all about being as explicit as possible when communicating to the browser the purpose your content is serving.
+There's a host of [semantic elements](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantic_elements)
+you can use to give more meaning to your content and assist screen readers to the best of your ability.
+
+### Layout elements
+
+We must use the HTML elements the way they were intended. Another example is the use of `div` and `span` elements.
+These elements should only ever be used for layout.
+They do not have any semantic meaning and so give no assistance to screen readers.
+Often you'll see a clickable div being used in place of a button.
+This is something that should never happen.
+
+### Alt text on images
+
+Providing an alt attribute to all of your images is another must-have.
+The alt text is like a fallback that can be shown if the image isn't rendered properly or a screen reader is being used:
+
+```html
+<img
+  src="http://golden-retriever.photos.jpg"
+  alt="Photo of a Golden Retriever dog"
+/>
+```
+
+### Benefits
+
+Semantic HTML is all about complying with standards set by those who wrote the HTML spec.
+All browsers, screen readers, and ultimately users base their experiences off of these standards.
+They are a set of rules we've all agreed upon and build off of so that there can be shared pool of meaning across all devices and user agents.
+When we stray from using semantic HTML, we are going rogue and don't get to participate in that shared pool of meaning.
+In making sure we use HTML elements the way they are intended, we get to enjoy the following benefits:
+
+<br />
+
+- Gives structure to your content which makes it easier to navigate for sighted users and screen readers
+- Influences the page's search ranking for SEO purposes. When search engines crawl through your page they will be able to pick up on important keywords.
+- Decoupling semantic markup from presentational information means you can apply the presentational information (CSS) to various types of data (HTML).
+- Having a good understanding of accessibility and its importance and how to achieve it makes you a better developer.
+
+<br />
+
+### ARIA labels
+
+ARIA stands for Accessible Rich Internet Applications.
+[Aria labels](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques) are a tool we can use to give semantic meaning to our content when there is no native HTML element available to do so.
+One of the tools at our disposal is the ARIA "role" attribute.
+We can attach a role attribute to an element to let assistive technologies know the best way to handle each element.
+Remember how I said you should never make a `div` clickable? If you can avoid it, certainly do, but as with most rules
+in programming, there are exceptions. If you find yourself in one of those exceptional circumstances, you can add an aria "role"
+attribute to let the screen reader know the element should be treated as a button:
+
+```html
+<div tabindex="0" role="button">Sign up</div>
+```
+
+The `tabindex` here is also necessary. Non-sigted users navigate to different clickable elements by pressing the tab key. So this `tabindex` does the job of including the `div` in the tab sequence.
+So aria roles are used in the case when for some reason you can't use the approriate HTML element. It's an indirect way of applying semantics to your markup.
+
+## Testing
+
+So you think you've done a pretty good job of following best practices and you're confident your site can be deemed accessible. How can you really be sure?
+The best way is to use a screen reader to test your site and make sure you can navigate it. You should do this. Additionally, or to get a quick temperature
+check on the state of accessibility on your site is to use a friendly tool that comes with Google Chrome called Lighthouse.
+
+### Google Lighthouse
+
+This is an amazing tool that you can run in google chrome for your website or application.
+Simply open the dev tools in chrome (Cmd + Option + i).
+Then, on the navigation bar at the top of dev tools click "Lighthouse."
+
+![Google Lighthouse in dev tools bar](./lighthouse.png)
+
+Next you will be presented with a button to "Generate Report."
+You can select the categories and devices you want to be included in the report.
+In this case, if you're just focusing on Accessibility you can select that category:
+
+![Generate Google Lighthouse report](./generate-report.png)
+
+You clicked "Generate Report", now wait for Chrome to do it's thing...and voila, you get a fancy readout of your Accessibility score!
+Not only that, you are presented with some opportunity areas for improvement. Below is the report for this blog as of the writing of this post:
+
+![Google Lighthouse report](./lighthouse-report.png)
+
+Welp, looks like I could take my own advice and add alt attributes to my images.
+I hope this illustrates that when it comes to accessibility, much like building a product in general, it's a journey.
+Hopefully by the time you read this post this score will be up.
+
+It's really handy that google provides this, it's really a labor of love.
+With tools like this at our disposal it makes it harder to justify having a poor accessibility on your site.
+Really I'm just lecturing myself at this point 🙈
+
+## Wrapping up
+
+To recap, we began by understanding why we should care about accessibility. We then explored some techniques like proper color contrast and how to verify it.
+We learned about the accessibility tree and how to write semantic HTML so we can interface effectively with it. Finally, I left you with a way to test
+the accessibility on your site using Google Lighthouse.
+
+Now, of course this is not an exhaustive tutorial on writing perfectly accessible websites. I just wanted to spread the good word about the importance of accessibility and to get you thinking like a screen reader.
+I hope I've demonstrated the significance of having good accessibility, it's really all about empathy. Go forth and prosper with some of these quick wins and tips and hopefully we will continue to
+create better experiences, for everyone.

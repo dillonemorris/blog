@@ -5,7 +5,7 @@ import { SpeechBubble } from "./icons/SpeechBubble";
 import { useIsMobile } from "../hooks/useIsMobile";
 
 export const P = styled.p`
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   font-size: 20px;
   color: var(--color-text);
   line-height: 1.6;
@@ -13,14 +13,14 @@ export const P = styled.p`
 
 export const H2 = styled.h2`
   font-size: 34px;
-  padding-top: 16px;
-  margin-bottom: 16px;
+  padding-top: 30px;
+  margin-bottom: 12px;
   color: var(--color-text);
 `;
 
 export const H3 = styled.h2`
   font-size: 26px;
-  padding-top: 12px;
+  padding-top: 20px;
   margin-bottom: 8px;
   color: var(--color-text);
 `;
@@ -35,6 +35,10 @@ export const A = styled(Link)`
   &:hover {
     box-shadow: 0px 2px 0px var(--color-primary);
   }
+`;
+
+export const UL = styled.ul`
+  color: var(--color-text);
 `;
 
 const BlockQuote = styled.blockquote`

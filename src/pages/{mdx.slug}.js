@@ -4,7 +4,7 @@ import React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import styled from "styled-components";
 import Spacer from "../components/Spacer";
-import { H2, P, H3, A, Quote } from "../components/Elements";
+import { H2, P, H3, A, Quote, UL } from "../components/Elements";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useIsDarkModeEnabled } from "../hooks/useIsDarkModeEnabled";
 import { ButtonContrastExample } from "../components/ButtonContrastExample";
@@ -40,7 +40,7 @@ export default function PostPage({ data }) {
     h2: ({ children }) => <H2 style={{ width: "fit-content" }}>{children}</H2>,
     h3: ({ children }) => <H3>{children}</H3>,
     p: ({ children }) => <P>{children}</P>,
-    ul: ({ children }) => <ul>{children}</ul>,
+    ul: ({ children }) => <UL>{children}</UL>,
     blockquote: ({ children }) => <Quote>{children}</Quote>,
     pre: (props) => <pre {...props} />,
     code: CodeSnippet,
