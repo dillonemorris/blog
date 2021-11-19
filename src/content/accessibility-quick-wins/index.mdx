@@ -22,7 +22,7 @@ building. It all starts with one broken window:
 
 > "One **broken window**, left unrepaired for any substantial length of time, instills in the inhabitants of the building a sense of abandonment—a sense that the powers that be don’t care about the building. So another window gets broken. People start littering. Graffiti appears. Serious structural damage begins. In a relatively short span of time, the building becomes damaged beyond the owner’s desire to fix it, and the sense of abandonment becomes reality."
 
-The authors warn that this same degradation can happen to codebases if we're not vigilant in preventing it. This analogy can apply to the codebase as a whole but we can also apply it to the accessibility of the product as well. Instead of waiting until the accessibility of the site needs a complete overhaul causing developers to get buy-in from stakeholders to spend time on it, what if we tended to the accessibility of our site as we go?
+The authors warn that this same degradation can happen to code-bases if we're not vigilant in preventing it. This analogy can apply to the codebase as a whole but we can also apply it to the accessibility of the product as well. Instead of waiting until the accessibility of the site needs a complete overhaul causing developers to get buy-in from stakeholders to spend time on it, what if we tended to the accessibility of our site as we go?
 
 <br />
 
@@ -51,7 +51,7 @@ The idea behind accessibility is this:
 
 <br />
 
-No one reading this would argue with the sentiment above yet if we don’t take care and do the following things, we’re not adhering to this message. So without further ado, allow me to give you some tips for making your website of app accessible.
+No one reading this would argue with the sentiment above yet if we don’t take care and do the following things, we’re not adhering to this message. So without further ado, allow me to give you some tips for making your website or app accessible.
 
 ## Color contrast on text content
 
@@ -59,7 +59,13 @@ This is probably the lowest hanging fruit in terms of making your site more acce
 
 <ButtonContrastExample disableDescription />
 
-Looking at these two buttons side-by-side, it's obvious which one you should go with if you are keeping accessiblity in mind. However, just using your eye isn't good enough because it doesn't take into account others who see the world differently than you. That's where web standards come in. The web standard for color contrast is in the [Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/). These are a series of standards set with the intention of making the web more accessible to everyone. The standard defines two levels of contrast ratio for colors: AA (minimum contrast) and AAA (enhanced contrast). The level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (at least 18pt) or bold text. The level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text or bold text.
+Looking at these two buttons side-by-side, it should be fairly obvious which one is easier to read. The one on the right looks "washed out" whereas the one on the left has text that's easily distinguishable against the background.
+However, just using your eye isn't good enough because it doesn't take into account others who see the world differently than you. You might vbe able to read the one on the right just fine.
+That's where web standards come in. The web standard for color contrast is in the [Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/).
+These are a series of standards set with the intention of making the web more accessible to everyone.
+The standard defines two levels of contrast ratio for colors: AA (minimum contrast) and AAA (enhanced contrast).
+The level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (at least 18pt) or bold text.
+The level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text or bold text.
 Luckily you don't have to memorize these rules and in practice you probably won't
 even reference the numbers themselves. There are numerous contrast checkers like
 [this one](https://coolors.co/contrast-checker/0a1b2e-aec9e5) where you can simply
@@ -80,7 +86,7 @@ colors do not meet these guidelines and need to be updated.
 ### Element inspector 🕵🏻‍♂️
 
 Another easy way to check contrast is to inspect the element in question in Chrome, Edge or Firefox DevTools.
-In Chrome for example, when you open the developer tools (Cmd + Option + i) you'll just want to make sure you have the element inspector selected:
+In Chrome for example, open the developer tools (Cmd + Option + i) and make sure you have the element inspector selected:
 
 ![Google chrome dev tools element inspector](./inspect-a11y.png)
 
@@ -94,11 +100,12 @@ As you can see, the headline I'm hovering over meets the WCAG standard with a co
 
 ## The Accessibility Tree
 
-You've probably heard of the DOM tree, right?
+Okay, so we've looked at a few ways to make sure your color contrast levels are in line with standards. Color contrast is very important for all sighted users, especially those who have some form of color blindness ([300 million people worldwide](https://www.clintoneye.com/color-blindness.html)).
+What about those that are completely blind? As you may know they require the assistance of a screen reader. But how does a screen reader work? How does the browser communicate with the screen reader to tell it what commands and prompts to give? There's an underlying structure that's responsible for this, it's called the accessibility tree.  You've probably heard of the DOM tree, right?
 
 > When a web browser parses an HTML document, it builds a DOM tree and then uses it to display the document. <br /><br /> [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 
-The DOM is an API we can use as developers to manipulate the visual representation of those elements that the user interacts with. The word visual here is crucial because the DOM tree is really only useful to sighted users, at least directly. The browser takes this DOM tree and creates an accessibility tree based off of it. In turn, assistive technologies can use this accessibility tree to form a representation of the UI that visually impaired users can understand.
+The DOM is an API we can use as developers to manipulate the visual representation of those elements that the user interacts with. The word visual here is crucial because the DOM tree is really only useful to sighted users. The browser takes this DOM tree and creates an accessibility tree based off of it. In turn, assistive technologies (screen readers) can use this accessibility tree to form a representation of the UI that visually impaired users can understand.
 
 Let's say you write some HTML that looks like this:
 
@@ -146,7 +153,7 @@ So a good rule of thumb is to make sure each page on your website or app has a s
 We'll look more into what semantic HTML is and why it's important in the next section. For now, just understand this flow I've outlined in the 3 screenshots above. It starts with the DOM structure you write, to the DOM tree the browser creates, to the accessibility tree generated from it.
 Understanding this flow, you can write HTML that's easily and correctly interpreted by the browser so it can form an accurate representation of your website for all users.
 
-As HTML/CSS developers, we are expected to have a solid understanding of the DOM tree and markup. This is our bread and butter, especially if you are primarily a frontend developer like myself. We need to know the different elements and how to manipulate them in order to affect the visual representation that the user interacts with. Yet, the same expectation does not expand to include the accessibility tree, and it should. After all, the only way screen readers can interact with our applications is through the accessibility tree. This is why proper semantic HTML in the DOM is so important. The more rich and meaningful the HTML is, the more rich and meaningful the accessibility tree will be in turn.
+As HTML/CSS developers, we are expected to have a solid understanding of the DOM tree and markup. This is our bread and butter, especially if you are primarily a frontend developer like myself. We need to know the different elements and how to manipulate them in order to affect the visual representation that the user interacts with. Yet, the same expectation does not expand to include the accessibility tree, and it should. After all, the only way screen readers can interact with our applications is through the accessibility tree. This is why proper semantic HTML in the DOM is so important. The more rich and meaningful the HTML is, the more rich and meaningful the accessibility tree will be.
 
 ## Rich, semantic, content
 
@@ -168,7 +175,7 @@ However, this is bad practice and goes against what HTML is intended for:
 > HTML should be coded to represent the data that will be populated and not based on its default presentation styling.
 > Presentation (how it should look), is the sole responsibility of CSS. <br /><br />[MDN](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html)
 
-We want to use HTML as it's intended. If we don't do so we lose out on the accessibility benefits associated with doing it the correct way.
+We want to use HTML as it's intended. If we don't, we lose out on the accessibility benefits associated with doing it the correct way.
 This is all about being as explicit as possible when communicating to the browser the purpose your content is serving.
 There's a host of [semantic elements](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantic_elements)
 you can use to give more meaning to your content and assist screen readers to the best of your ability.
