@@ -5,7 +5,7 @@ image: "./quick-wins.png"
 largeImage: "./quick-wins-large.png"
 imageDarkMode: "./quick-wins_dark.png"
 largeImageDarkMode: "./quick-wins-large_dark.png"
-excerpt: The goal here is to equip you with some "quick wins" for making your product's experience more accessible to everyone.
+excerpt: The goal here is to equip you with some "quick wins" for making your product more accessible to everyone.
 ---
 
 Often as product owners and developers, we hear accessibility and think “it’s a nice to have.”
@@ -22,15 +22,15 @@ building. It all starts with one broken window:
 
 > "One **broken window**, left unrepaired for any substantial length of time, instills in the inhabitants of the building a sense of abandonment—a sense that the powers that be don’t care about the building. So another window gets broken. People start littering. Graffiti appears. Serious structural damage begins. In a relatively short span of time, the building becomes damaged beyond the owner’s desire to fix it, and the sense of abandonment becomes reality."
 
-The authors warn that this same degradation can happen to code-bases if we're not vigilant in preventing it. This analogy can apply to the codebase as a whole but we can also apply it to the accessibility of the product as well. Instead of waiting until the accessibility of the site needs a complete overhaul causing developers to get buy-in from stakeholders to spend time on it, what if we tended to the accessibility of our site as we go?
+The authors warn that this same degradation can happen to code-bases if we're not vigilant in preventing it. This analogy can apply to the codebase as a whole and to accessibility specifically. Instead of waiting until the accessibility of the site needs a complete overhaul causing developers to get buy-in from stakeholders to spend time on it, what if we tended to the accessibility of our site as we go?
 
 <br />
 
-Some companies, like Google, have entire teams dedicated to accessibility. Most of us making software however, are not Google. We're small teams of 3-4 or indie hackers that are trying to scrape together a solution efficiently for our clients. Though that does not justify completely ignoring accessibility, it is understandable that it gets slid under the rug as something we'll address "when we have extra time." The trouble is, we rarely have extra time. So there's this conundrum. We know the importance of accessibility but we have other priorities we feel are more valuable.
+Some companies, like Google, have entire teams dedicated to accessibility. Most of us making software however, are not Google. We're on small teams that are trying to scrape together solutions efficiently for our clients/stakeholders. Though that does not justify completely ignoring accessibility, it is understandable that it gets slid under the rug as something we'll address "when we have extra time." The trouble is, we rarely have extra time. Therein lies the conundrum. We know the importance of accessibility but we have other priorities we feel are more valuable.
 
 <br />
 
-The idea here is to present you with some "quick wins" for making your product's experience more accessible to everyone. These are things you can do "as you go."
+The idea here is to present you with some "quick wins" for making your product more accessible to everyone. These are things you can do "as you go."
 This is not meant to diminish the importance of having full compliance with accessibility guidelines. Ultimately, that is the goal, that's what we should always be aiming for, full compliance. Anything short of that and you are inevitably guarding your site from being used by someone. However, I've been on enough projects to know that even being mindful of accessibility is a rarity. More often than not, it's completely ignored.
 
 <br />
@@ -55,12 +55,12 @@ No one reading this would argue with the sentiment above yet if we don’t take 
 
 ## Color contrast on text content
 
-This is probably the lowest hanging fruit in terms of making your site more accessible. Caring about color contrast is to be mindful of those who have trouble or the complete inability to distinguish colors. Also, this one kind of applies to everyone. Let's take a look at a common example, buttons:
+This is probably the lowest hanging fruit. Caring about color contrast is being mindful of those who have trouble or a complete inability to distinguish colors from one another. Let's take a look at a common example, buttons:
 
 <ButtonContrastExample disableDescription />
 
 Looking at these two buttons side-by-side, it should be fairly obvious which one is easier to read. The one on the right looks "washed out" whereas the one on the left has text that's easily distinguishable against the background.
-However, just using your eye isn't good enough because it doesn't take into account others who see the world differently than you. You might vbe able to read the one on the right just fine.
+However, just using your eye isn't good enough because it doesn't take into account others who see the world differently than you. You might be able to read the one on the right just fine.
 That's where web standards come in. The web standard for color contrast is in the [Web Content Accessibility Guidelines](https://www.w3.org/TR/2008/REC-WCAG20-20081211/).
 These are a series of standards set with the intention of making the web more accessible to everyone.
 The standard defines two levels of contrast ratio for colors: AA (minimum contrast) and AAA (enhanced contrast).
@@ -68,7 +68,7 @@ The level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1
 The level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text or bold text.
 Luckily you don't have to memorize these rules and in practice you probably won't
 even reference the numbers themselves. There are numerous contrast checkers like
-[this one](https://coolors.co/contrast-checker/0a1b2e-aec9e5) where you can simply
+[this one](https://coolors.co/contrast-checker/0a1b2e-aec9e5) where you simply
 input the hex codes for the colors you want to check and instantly know if they meet
 the guidelines or not, use these anytime you want assurance that your color combinations
 are accessible.
@@ -78,7 +78,7 @@ are accessible.
 Checking color contrast is something that should be done up front when choosing the
 color palette for your project. It's also something that's easy to keep in the back
 of your head and straightforward to correct. Basically, if some text
-is even slightly hard for you to read against the background, it's likely that the
+is even slightly hard for you to read against a given background it's likely that the
 colors do not meet these guidelines and need to be updated.
 
 <br />
@@ -86,7 +86,7 @@ colors do not meet these guidelines and need to be updated.
 ### Element inspector 🕵🏻‍♂️
 
 Another easy way to check contrast is to inspect the element in question in Chrome, Edge or Firefox DevTools.
-In Chrome for example, open the developer tools (Cmd + Option + i) and make sure you have the element inspector selected:
+Let's look at Google Chrome since it's the most widely used. Open the developer tools (Cmd + Option + i) and make sure you have the element inspector selected:
 
 ![Google chrome dev tools element inspector](./inspect-a11y.png)
 
@@ -101,7 +101,11 @@ As you can see, the headline I'm hovering over meets the WCAG standard with a co
 ## The Accessibility Tree
 
 Okay, so we've looked at a few ways to make sure your color contrast levels are in line with standards. Color contrast is very important for all sighted users, especially those who have some form of color blindness ([300 million people worldwide](https://www.clintoneye.com/color-blindness.html)).
-What about those that are completely blind? As you may know they require the assistance of a screen reader. But how does a screen reader work? How does the browser communicate with the screen reader to tell it what commands and prompts to give? There's an underlying structure that's responsible for this, it's called the accessibility tree.  You've probably heard of the DOM tree, right?
+What about those that are completely blind? As you may know they require the assistance of a screen reader. But how does a screen reader work? How does the browser communicate with the screen reader to tell it what commands and prompts to give? There's an underlying structure that's responsible for this, it's called the accessibility tree.
+
+<br />
+
+You've probably heard of the DOM tree, right?
 
 > When a web browser parses an HTML document, it builds a DOM tree and then uses it to display the document. <br /><br /> [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 
@@ -123,7 +127,7 @@ Let's say you write some HTML that looks like this:
 
 <br />
 
-The web browser will first take this structure and create a DOM tree that looks like this:
+The web browser will first take this structure and create a DOM tree. Here is a diagram to help us visualize it:
 
 <br />
 
@@ -131,7 +135,7 @@ The web browser will first take this structure and create a DOM tree that looks 
 
 <br />
 
-Now, a lot of the information in a DOM tree is not useful to visually impaired users. So what the browser does from here is create an accessibility tree based off of this tree keeping only the parts that are useful for assistive technologies. That tree might look something like this:
+Now, a lot of the information in this DOM tree is not useful to visually impaired users. So what the browser does from here is create an accessibility tree based off of this tree keeping only the parts that are useful for assistive technologies. That tree might look something like this:
 
 <br />
 
@@ -186,12 +190,12 @@ We must use the HTML elements the way they were intended. Another example is the
 These elements should only ever be used for layout.
 They do not have any semantic meaning and so give no assistance to screen readers.
 Often you'll see a clickable div being used in place of a button.
-This is something that should never happen.
+This is a misuse of HTML and should be avoidable if at all possible.
 
 ### Alt text on images
 
-Providing an alt attribute to all of your images is another must-have.
-The alt text is like a fallback that can be shown if the image isn't rendered properly or a screen reader is being used:
+Providing an `alt` attribute to all of your images is another must-have.
+The text given to `alt` is what is shown if the image isn't rendered properly or a screen reader is being used:
 
 ```html
 <img
@@ -237,8 +241,8 @@ So aria roles are used in the case when for some reason you can't use the appror
 ## Testing
 
 So you think you've done a pretty good job of following best practices and you're confident your site can be deemed accessible. How can you really be sure?
-The best way is to use a screen reader to test your site and make sure you can navigate it. You should do this. Additionally, or to get a quick temperature
-check on the state of accessibility on your site is to use a friendly tool that comes with Google Chrome called Lighthouse.
+ If you want to get a quick temperature
+check on the state of accessibility in your site, use the friendly tool that comes with Google Chrome, Lighthouse.
 
 ### Google Lighthouse
 
@@ -255,7 +259,7 @@ In this case, if you're just focusing on Accessibility you can select that categ
 ![Generate Google Lighthouse report](./generate-report.png)
 
 You clicked "Generate Report", now wait for Chrome to do it's thing...and voila, you get a fancy readout of your Accessibility score!
-Not only that, you are presented with some opportunity areas for improvement. Below is the report for this blog as of the writing of this post:
+Not only that, you are presented with some opportunity areas of improvement. Below is the report for this blog as of the writing of this post:
 
 ![Google Lighthouse report](./lighthouse-report.png)
 
@@ -263,7 +267,7 @@ Welp, looks like I could take my own advice and add alt attributes to my images.
 I hope this illustrates that when it comes to accessibility, much like building a product in general, it's a journey.
 Hopefully by the time you read this post this score will be up.
 
-It's really handy that google provides this, it's really a labor of love.
+It's really handy that google provides this at no cost to developers, take advantage.
 With tools like this at our disposal it makes it harder to justify having a poor accessibility on your site.
 Really I'm just lecturing myself at this point 🙈
 
