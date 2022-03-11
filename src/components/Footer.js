@@ -5,8 +5,8 @@ import avatar from "../images/avatar.png";
 import { useThemeColor } from "../hooks/useThemeColors";
 
 const Wrapper = styled.footer`
-  flex-shrink: 0;
   padding: 30px 0px 40px;
+  margin-top: auto;
 `;
 
 const Inner = styled.div`
