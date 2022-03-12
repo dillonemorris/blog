@@ -40,5 +40,8 @@
     "react-helmet": "^6.1.0",
     "styled-components": "^5.2.3",
     "use-media": "^1.4.0"
+  },
+  "devDependencies": {
+    "react-is": "^17.0.2"
   }
 }
