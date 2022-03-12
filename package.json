@@ -34,9 +34,14 @@
     "gatsby-source-filesystem": "^3.4.0",
     "gatsby-transformer-sharp": "^3.4.0",
     "postcss": "^8.2.13",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "prism-react-renderer": "^1.2.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-helmet": "^6.1.0",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "use-media": "^1.4.0"
+  },
+  "devDependencies": {
+    "react-is": "^17.0.2"
   }
 }

@@ -60,6 +60,34 @@ const MagicScriptTag = () => {
         : '${THEME_COLORS.dark.secondaryText}'
     );
 
+    root.style.setProperty(
+      '--color-tertiary-background',
+      colorMode === 'light'
+        ? '${THEME_COLORS.light.tertiaryBackground}'
+        : '${THEME_COLORS.dark.tertiaryBackground}'
+    );
+
+    root.style.setProperty(
+      '--color-dark-background',
+      colorMode === 'light'
+        ? '${THEME_COLORS.light.darkBackground}'
+        : '${THEME_COLORS.dark.darkBackground}'
+    );
+
+    root.style.setProperty(
+      '--color-success',
+      colorMode === 'light'
+        ? '${THEME_COLORS.light.success}'
+        : '${THEME_COLORS.dark.success}'
+    );
+
+    root.style.setProperty(
+      '--color-danger',
+      colorMode === 'light'
+        ? '${THEME_COLORS.light.danger}'
+        : '${THEME_COLORS.dark.danger}'
+    );
+
     root.style.setProperty('--initial-color-mode', colorMode);
   })()
   `;
