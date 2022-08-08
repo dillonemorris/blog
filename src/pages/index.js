@@ -2,9 +2,14 @@ import { graphql } from "gatsby";
 import * as React from "react";
 import styled from "styled-components";
 import { Post } from "../components/Post";
+import { SCREENS } from "../styles/theme";
 
 const PostWrapper = styled.div`
   padding: 40px 0px;
+
+  @media (min-width: ${SCREENS.DESKTOP}) {
+    padding: 80px 0px;
+  }
 `;
 
 const IndexPage = ({ data }) => {
@@ -14,7 +19,7 @@ const IndexPage = ({ data }) => {
       <title>dillon.</title>
       <PostWrapper>
         {posts.map((post) => {
-          return <Post post={post} />;
+          return <Post key={post.id} post={post} />;
         })}
       </PostWrapper>
     </main>
@@ -29,24 +34,6 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "MMMM Do, YYYY")
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                width: 180
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
-          }
-          imageDarkMode {
-            childImageSharp {
-              gatsbyImageData(
-                width: 180
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
-          }
           excerpt
         }
         slug

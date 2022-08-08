@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Spacer from "./Spacer";
 import { P } from "./Elements";
-import { useIsDarkModeEnabled } from "../hooks/useIsDarkModeEnabled";
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -16,7 +14,7 @@ const StyledLink = styled(Link)`
 
 const Title = styled.h1`
   font-size: 34px;
-  color: var(--color-text);
+  color: var(--color-primary);
 `;
 
 const Excerpt = styled(P)`
@@ -25,10 +23,6 @@ const Excerpt = styled(P)`
 
 export const Post = ({ post }) => {
   const { frontmatter, slug } = post;
-  const imageLightMode = getImage(frontmatter.image);
-  const imageDarkMode = getImage(frontmatter.imageDarkMode);
-  const isDarkModeEnabled = useIsDarkModeEnabled();
-  const image = isDarkModeEnabled ? imageDarkMode : imageLightMode;
 
   return (
     <StyledLink to={slug}>
@@ -38,11 +32,6 @@ export const Post = ({ post }) => {
         <Spacer size={4} />
         <Excerpt>{frontmatter.excerpt}</Excerpt>
       </div>
-      <Spacer size={24} />
-      <GatsbyImage
-        alt={`Illustration for ${frontmatter.title}`}
-        image={image}
-      />
     </StyledLink>
   );
 };

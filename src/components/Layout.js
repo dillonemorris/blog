@@ -5,7 +5,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { ColorModeContainer } from "../components/ColorModeContainer";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-import { THEME_COLORS } from "../styles/theme";
+import { THEME_COLORS, SCREENS } from "../styles/theme";
 
 const Wrapper = styled.div`
   max-width: 720px;
@@ -18,7 +18,6 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
-  //flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -26,13 +25,13 @@ const Content = styled.div`
 
 export const Layout = ({ children }) => {
   return (
-    <ThemeProvider theme={{ colors: THEME_COLORS }}>
+    <ThemeProvider theme={{ colors: THEME_COLORS, screens: SCREENS }}>
       <ColorModeContainer>
-          <Wrapper>
-            <Header />
-            <Content>{children}</Content>
-            <Footer />
-          </Wrapper>
+        <Wrapper>
+          <Header />
+          <Content>{children}</Content>
+          <Footer />
+        </Wrapper>
       </ColorModeContainer>
     </ThemeProvider>
   );

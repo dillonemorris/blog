@@ -11,6 +11,7 @@ export const ColorModeContainer = ({ children }) => {
     const initialColorValue = root.style.getPropertyValue(
       "--initial-color-mode"
     );
+
     rawSetColorMode(initialColorValue);
   }, []);
 

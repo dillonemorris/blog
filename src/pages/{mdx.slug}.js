@@ -5,8 +5,6 @@ import { MDXProvider } from "@mdx-js/react";
 import styled from "styled-components";
 import Spacer from "../components/Spacer";
 import { H2, P, H3, A, Quote, UL } from "../components/Elements";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { useIsDarkModeEnabled } from "../hooks/useIsDarkModeEnabled";
 import { ButtonContrastExample } from "../components/ButtonContrastExample";
 import CodeSnippet from "../components/CodeSnippet";
 
@@ -22,13 +20,8 @@ const Title = styled.h1`
 export default function PostPage({ data }) {
   const {
     body,
-    frontmatter: { title, largeImage, largeImageDarkMode },
+    frontmatter: { title },
   } = data.mdx;
-
-  const imageLightMode = getImage(largeImage);
-  const imageDarkMode = getImage(largeImageDarkMode);
-  const isDarkModeEnabled = useIsDarkModeEnabled();
-  const image = isDarkModeEnabled ? imageDarkMode : imageLightMode;
 
   const components = {
     div: ({ children }) => <div>{children}</div>,
@@ -50,10 +43,7 @@ export default function PostPage({ data }) {
   return (
     <MDXProvider components={components}>
       <PostWrapper>
-        <div>
-          <GatsbyImage image={image} />
-          <Title>{title}</Title>
-        </div>
+        <Title>{title}</Title>
         <Spacer size={20} />
         <MDXRenderer>{body}</MDXRenderer>
       </PostWrapper>
@@ -70,24 +60,6 @@ export const query = graphql`
       frontmatter {
         date(formatString: "MMMM Do, YYYY")
         title
-        largeImage {
-          childImageSharp {
-            gatsbyImageData(
-              width: 300
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
-        largeImageDarkMode {
-          childImageSharp {
-            gatsbyImageData(
-              width: 300
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
       }
     }
   }

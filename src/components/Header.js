@@ -10,10 +10,6 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Emoji = styled.span`
-  font-size: 18px;
-`;
-
 const LogoLink = styled(Link)`
   display: flex;
 `;
@@ -27,9 +23,6 @@ export const Header = () => {
   return (
     <Container>
       <LogoLink to="/">
-        <Emoji role="img" aria-label="love">
-          💙
-        </Emoji>{" "}
         <Spacer size={6} />
         <Name>dillon.</Name>
       </LogoLink>
