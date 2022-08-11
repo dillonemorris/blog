@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { SpeechBubble } from "./icons/SpeechBubble";
 import { useIsMobile } from "../hooks/useIsMobile";
+import Spacer from "./Spacer";
 
 export const P = styled.p`
   margin-bottom: 12px;
@@ -37,7 +38,7 @@ export const A = styled(Link)`
   }
 `;
 
-export const UL = styled.ul`
+export const Ul = styled.ul`
   color: var(--color-text);
 `;
 
@@ -45,23 +46,17 @@ const BlockQuote = styled.blockquote`
   background-color: var(--color-secondary-background);
   color: #fff;
   border-radius: 6px;
-  padding: 36px;
+  padding: 20px 32px 20px 24px;
   display: flex;
+  flex-direction: column;
 
   p {
-    padding: ${({ isMobile }) => (isMobile ? "8px" : "16px 32px")};
     font-size: ${({ isMobile }) => (isMobile ? "16px" : "inherit")};
   }
 `;
 
 const QuoteIcon = styled.div`
-  margin-left: -56px;
-  margin-top: -12px;
-  background-color: var(--color-primary);
-  display: flex;
-  height: fit-content;
-  padding: 12px;
-  border-radius: 50%;
+  //margin-top: -20px;
 `;
 
 export const Quote = ({ children }) => {
@@ -71,6 +66,7 @@ export const Quote = ({ children }) => {
       <QuoteIcon>
         <SpeechBubble />
       </QuoteIcon>
+      <Spacer size={12} />
       {children}
     </BlockQuote>
   );

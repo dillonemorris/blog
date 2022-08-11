@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Spacer from "./Spacer";
 import { Checkmark } from "../components/icons/Checkmark";
-import { Skull } from "../components/icons/Skull";
+import { Skull } from "./icons/Skull";
 
 const Button = styled.button`
   padding: 8px 24px;

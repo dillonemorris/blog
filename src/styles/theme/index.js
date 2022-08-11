@@ -9,6 +9,12 @@ export const COLORS = {
   BLUE_200: "#BFDBFE",
   BLUE_100: "#DBEAFE",
 
+  PURPLE_200: "#DAC4FF",
+  PURPLE_100: "#F2EBFE",
+
+  CYAN_200: "#E1FCF8",
+  CYAN_100: "#edfffc",
+
   GREEN_300: "#6EE7B7",
   GREEN_700: "#047857",
 
@@ -24,7 +30,7 @@ export const THEME_COLORS = {
   light: {
     text: COLORS.GRAY_900,
     background: "#fff",
-    secondaryBackground: COLORS.BLUE_100,
+    secondaryBackground: COLORS.CYAN_200,
     tertiaryBackground: COLORS.GRAY_100,
     darkBackground: COLORS.GRAY_900,
     secondaryText: COLORS.GRAY_500,
@@ -38,7 +44,7 @@ export const THEME_COLORS = {
     secondaryBackground: COLORS.GRAY_800,
     tertiaryBackground: COLORS.GRAY_800,
     darkBackground: COLORS.GRAY_800,
-    secondaryText: COLORS.BLUE_200,
+    secondaryText: COLORS.CYAN_200,
     primary: COLORS.PINK_200,
     success: COLORS.GREEN_300,
     danger: COLORS.RED_300,

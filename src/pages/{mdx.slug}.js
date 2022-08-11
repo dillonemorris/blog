@@ -3,13 +3,18 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import styled from "styled-components";
+import { SCREENS } from "../styles/theme";
 import Spacer from "../components/Spacer";
-import { H2, P, H3, A, Quote, UL } from "../components/Elements";
+import { H2, P, H3, A, Quote, Ul } from "../components/Elements";
 import { ButtonContrastExample } from "../components/ButtonContrastExample";
 import CodeSnippet from "../components/CodeSnippet";
 
 const PostWrapper = styled.div`
   padding: 40px 0px;
+
+  @media (min-width: ${SCREENS.DESKTOP}) {
+    padding-top: 80px;
+  }
 `;
 
 const Title = styled.h1`
@@ -33,7 +38,7 @@ export default function PostPage({ data }) {
     h2: ({ children }) => <H2 style={{ width: "fit-content" }}>{children}</H2>,
     h3: ({ children }) => <H3>{children}</H3>,
     p: ({ children }) => <P>{children}</P>,
-    ul: ({ children }) => <UL>{children}</UL>,
+    ul: ({ children }) => <Ul>{children}</Ul>,
     blockquote: ({ children }) => <Quote>{children}</Quote>,
     pre: (props) => <pre {...props} />,
     code: CodeSnippet,
