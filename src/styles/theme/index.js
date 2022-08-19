@@ -3,6 +3,7 @@ export const COLORS = {
   GRAY_800: "#323F4B",
   GRAY_500: "#616E7C",
   GRAY_100: "#E4E7EB",
+  GRAY_050: "#F5F7FA",
 
   BLUE_600: "#2563EB",
   BLUE_400: "#60A5FA",
@@ -30,7 +31,7 @@ export const THEME_COLORS = {
   light: {
     text: COLORS.GRAY_900,
     background: "#fff",
-    secondaryBackground: COLORS.CYAN_200,
+    secondaryBackground: COLORS.GRAY_050,
     tertiaryBackground: COLORS.GRAY_100,
     darkBackground: COLORS.GRAY_900,
     secondaryText: COLORS.GRAY_500,

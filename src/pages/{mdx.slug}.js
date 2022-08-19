@@ -9,8 +9,10 @@ import { H2, P, H3, A, Quote, Ul } from "../components/Elements";
 import { ButtonContrastExample } from "../components/ButtonContrastExample";
 import CodeSnippet from "../components/CodeSnippet";
 
-const PostWrapper = styled.div`
-  padding: 40px 0px;
+const PageWrapper = styled.div`
+  padding: 40px 16px;
+  max-width: 720px;
+  margin: auto;
 
   @media (min-width: ${SCREENS.DESKTOP}) {
     padding-top: 80px;
@@ -47,11 +49,11 @@ export default function PostPage({ data }) {
 
   return (
     <MDXProvider components={components}>
-      <PostWrapper>
+      <PageWrapper>
         <Title>{title}</Title>
         <Spacer size={20} />
         <MDXRenderer>{body}</MDXRenderer>
-      </PostWrapper>
+      </PageWrapper>
     </MDXProvider>
   );
 }

@@ -7,31 +7,35 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { THEME_COLORS, SCREENS } from "../styles/theme";
 
-const Wrapper = styled.div`
-  max-width: 720px;
-  width: 100%;
+const PageWrapper = styled.div`
+  height: 100%;
   margin: auto;
-  padding: 40px 16px 0px 16px;
-  min-height: 100%;
+  width: 100%;
+  border-top: 4px solid var(--color-primary);
+`;
+
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
 `;
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100%;
 `;
 
 export const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={{ colors: THEME_COLORS, screens: SCREENS }}>
       <ColorModeContainer>
-        <Wrapper>
-          <Header />
-          <Content>{children}</Content>
-          <Footer />
-        </Wrapper>
+        <PageWrapper>
+          <Wrapper>
+            <Header />
+            <Content>{children}</Content>
+            <Footer />
+          </Wrapper>
+        </PageWrapper>
       </ColorModeContainer>
     </ThemeProvider>
   );
